@@ -26,6 +26,15 @@ module.exports = ($projectData, $pluginVariablesHelper, $logger) => {
         fs.mkdirSync(pluginVars.OutputDir);
     }
 
-    const outpuFileName = path.join(pluginVars.OutputDir, "env.json");
-    fs.writeFileSync(outpuFileName, JSON.stringify(envVars, null, 2));
+    const outputFileName = path.join(pluginVars.OutputDir, "env.json");
+    if (fs.existsSync(outputFileName)) {
+        const currentContent = fs.readFileSync(outputFileName).toString();
+        if (currentContent == input) {
+            $logger.info("Env file not changed.");
+            return;
+        }
+    }
+
+    $logger.info("Writing env file.");
+    fs.writeFileSync(outputFileName, JSON.stringify(envVars, null, 2));
 };
