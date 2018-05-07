@@ -28,5 +28,4 @@ module.exports = ($projectData, $pluginVariablesHelper, $logger) => {
 
     const outpuFileName = path.join(pluginVars.OutputDir, "env.json");
     fs.writeFileSync(outpuFileName, JSON.stringify(envVars, null, 2));
-    throw new Error("STOP!!!");
 };
