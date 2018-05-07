@@ -1,0 +1,52 @@
+{
+  "name": "nativescript-env-file",
+  "version": "0.1.0",
+  "description": "nativescript-env-file",
+  "main": "index.js",
+  "nativescript": {
+    "variables": {
+      "OutputDir": {
+        "type": "string",
+        "defaultValue": "app"
+      },
+      "InputDir": {
+        "type": "string",
+        "defaultValue": "app"
+      },
+      "Stage": {
+        "type": "string",
+        "defaultValue": "dev"
+      }
+    },
+    "hooks": [
+      {
+        "type": "before-prepare",
+        "script": "hooks/before-prepare.js",
+        "inject": true
+      }
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node postinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TsvetanMilanov/nativescript-env-file.git"
+  },
+  "keywords": [
+    "nativescript",
+    "env",
+    "file",
+    "json"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TsvetanMilanov/nativescript-env-file/issues"
+  },
+  "homepage": "https://github.com/TsvetanMilanov/nativescript-env-file#readme",
+  "dependencies": {
+    "nativescript-hook": "0.2.4"
+  }
+}
